@@ -1,0 +1,123 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@latest/styles/vis-network.css" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vis-network@latest/dist/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 1000px;
+            background-color: #222222;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+        #config {
+            float: left;
+            width: 400px;
+            height: 600px;
+        }
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<div id = "config"></div>
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": "blue", "font": {"color": "white"}, "id": "review", "label": "review", "shape": "dot", "size": 34}, {"color": "green", "font": {"color": "white"}, "id": "content_analysis", "label": "content_analysis", "shape": "dot", "size": 20}, {"color": "blue", "font": {"color": "white"}, "id": "review_rating", "label": "review_rating", "shape": "dot", "size": 21}, {"color": "yellow", "font": {"color": "white"}, "id": "hotel", "label": "hotel", "shape": "dot", "size": 23}, {"color": "yellow", "font": {"color": "white"}, "id": "attraction", "label": "attraction", "shape": "dot", "size": 11}, {"color": "silver", "font": {"color": "white"}, "id": "2019", "label": "2019", "shape": "dot", "size": 14}, {"color": "silver", "font": {"color": "white"}, "id": "2021", "label": "2021", "shape": "dot", "size": 13}, {"color": "red", "font": {"color": "white"}, "id": "usa", "label": "usa", "shape": "dot", "size": 12}, {"color": "green", "font": {"color": "white"}, "id": "classification", "label": "classification", "shape": "dot", "size": 10}, {"color": "silver", "font": {"color": "white"}, "id": "2022", "label": "2022", "shape": "dot", "size": 7}, {"color": "green", "font": {"color": "white"}, "id": "sentiment_analysis", "label": "sentiment_analysis", "shape": "dot", "size": 7}, {"color": "yellow", "font": {"color": "white"}, "id": "things_to_do", "label": "things_to_do", "shape": "dot", "size": 6}, {"color": "green", "font": {"color": "white"}, "id": "inferential_statistics", "label": "inferential_statistics", "shape": "dot", "size": 9}, {"color": "silver", "font": {"color": "white"}, "id": "2020", "label": "2020", "shape": "dot", "size": 8}, {"color": "silver", "font": {"color": "white"}, "id": "2018", "label": "2018", "shape": "dot", "size": 5}, {"color": "red", "font": {"color": "white"}, "id": "uk", "label": "uk", "shape": "dot", "size": 6}, {"color": "yellow", "font": {"color": "white"}, "id": "restaurant", "label": "restaurant", "shape": "dot", "size": 4}, {"color": "yellow", "font": {"color": "white"}, "id": "destination", "label": "destination", "shape": "dot", "size": 5}, {"color": "red", "font": {"color": "white"}, "id": "italy", "label": "italy", "shape": "dot", "size": 6}, {"color": "green", "font": {"color": "white"}, "id": "netnography", "label": "netnography", "shape": "dot", "size": 1}, {"color": "red", "font": {"color": "white"}, "id": "thailand", "label": "thailand", "shape": "dot", "size": 1}, {"color": "blue", "font": {"color": "white"}, "id": "response", "label": "response", "shape": "dot", "size": 4}, {"color": "blue", "font": {"color": "white"}, "id": "user_location", "label": "user_location", "shape": "dot", "size": 3}, {"color": "silver", "font": {"color": "white"}, "id": "2017", "label": "2017", "shape": "dot", "size": 3}, {"color": "red", "font": {"color": "white"}, "id": "spain", "label": "spain", "shape": "dot", "size": 3}, {"color": "red", "font": {"color": "white"}, "id": "australia", "label": "australia", "shape": "dot", "size": 1}, {"color": "green", "font": {"color": "white"}, "id": "linguistics_approach", "label": "linguistics_approach", "shape": "dot", "size": 3}, {"color": "blue", "font": {"color": "white"}, "id": "user_info", "label": "user_info", "shape": "dot", "size": 2}, {"color": "blue", "font": {"color": "white"}, "id": "helpful", "label": "helpful", "shape": "dot", "size": 2}, {"color": "red", "font": {"color": "white"}, "id": "france", "label": "france", "shape": "dot", "size": 1}, {"color": "blue", "font": {"color": "white"}, "id": "hia_location", "label": "hia_location", "shape": "dot", "size": 1}, {"color": "red", "font": {"color": "white"}, "id": "portugal", "label": "portugal", "shape": "dot", "size": 1}, {"color": "blue", "font": {"color": "white"}, "id": "hia_info", "label": "hia_info", "shape": "dot", "size": 4}, {"color": "silver", "font": {"color": "white"}, "id": "2016", "label": "2016", "shape": "dot", "size": 1}, {"color": "red", "font": {"color": "white"}, "id": "china", "label": "china", "shape": "dot", "size": 2}, {"color": "blue", "font": {"color": "white"}, "id": "review_number", "label": "review_number", "shape": "dot", "size": 6}, {"color": "blue", "font": {"color": "white"}, "id": "as_a_whole", "label": "as_a_whole", "shape": "dot", "size": 5}, {"color": "red", "font": {"color": "white"}, "id": "turkey", "label": "turkey", "shape": "dot", "size": 1}, {"color": "silver", "font": {"color": "white"}, "id": "hong_kong", "label": "hong_kong", "shape": "dot", "size": 1}, {"color": "silver", "font": {"color": "white"}, "id": "2015", "label": "2015", "shape": "dot", "size": 1}]);
+        edges = new vis.DataSet([{"betweenness": 0.013924501424501424, "from": "review", "label": 72, "to": "content_analysis", "value": 72, "weight": 72}, {"betweenness": 0.015512820512820515, "from": "review", "label": 52, "to": "review_rating", "value": 52, "weight": 52}, {"betweenness": 0.04832722832722832, "from": "review", "label": 51, "to": "hotel", "value": 51, "weight": 51}, {"betweenness": 0.01863247863247863, "from": "review", "label": 34, "to": "attraction", "value": 34, "weight": 34}, {"betweenness": 0.024437368187368184, "from": "review", "label": 33, "to": "2019", "value": 33, "weight": 33}, {"betweenness": 0.024971556221556217, "from": "review", "label": 30, "to": "2021", "value": 30, "weight": 30}, {"betweenness": 0.016452991452991447, "from": "review", "label": 26, "to": "usa", "value": 26, "weight": 26}, {"betweenness": 0.018069800569800565, "from": "review", "label": 26, "to": "classification", "value": 26, "weight": 26}, {"betweenness": 0.01959401709401709, "from": "review", "label": 21, "to": "2022", "value": 21, "weight": 21}, {"betweenness": 0.018803418803418796, "from": "review", "label": 19, "to": "sentiment_analysis", "value": 19, "weight": 19}, {"betweenness": 0.021709401709401704, "from": "review", "label": 19, "to": "things_to_do", "value": 19, "weight": 19}, {"betweenness": 0.020128205128205127, "from": "review", "label": 16, "to": "inferential_statistics", "value": 16, "weight": 16}, {"betweenness": 0.027408424908424902, "from": "review", "label": 16, "to": "2020", "value": 16, "weight": 16}, {"betweenness": 0.02008547008547008, "from": "review", "label": 15, "to": "2018", "value": 15, "weight": 15}, {"betweenness": 0.023995726495726497, "from": "review", "label": 15, "to": "uk", "value": 15, "weight": 15}, {"betweenness": 0.025518925518925515, "from": "review", "label": 14, "to": "restaurant", "value": 14, "weight": 14}, {"betweenness": 0.02226495726495727, "from": "review", "label": 12, "to": "destination", "value": 12, "weight": 12}, {"betweenness": 0.019679487179487178, "from": "review", "label": 10, "to": "italy", "value": 10, "weight": 10}, {"betweenness": 0.05, "from": "review", "label": 10, "to": "netnography", "value": 10, "weight": 10}, {"betweenness": 0.05, "from": "review", "label": 9, "to": "thailand", "value": 9, "weight": 9}, {"betweenness": 0.02393162393162393, "from": "review", "label": 8, "to": "response", "value": 8, "weight": 8}, {"betweenness": 0.02457264957264957, "from": "review", "label": 8, "to": "user_location", "value": 8, "weight": 8}, {"betweenness": 0.024999999999999994, "from": "review", "label": 8, "to": "2017", "value": 8, "weight": 8}, {"betweenness": 0.025, "from": "review", "label": 7, "to": "spain", "value": 7, "weight": 7}, {"betweenness": 0.05, "from": "review", "label": 7, "to": "australia", "value": 7, "weight": 7}, {"betweenness": 0.030555555555555555, "from": "review", "label": 7, "to": "linguistics_approach", "value": 7, "weight": 7}, {"betweenness": 0.03397435897435897, "from": "review", "label": 5, "to": "user_info", "value": 5, "weight": 5}, {"betweenness": 0.0406959706959707, "from": "review", "label": 6, "to": "helpful", "value": 6, "weight": 6}, {"betweenness": 0.05, "from": "review", "label": 6, "to": "france", "value": 6, "weight": 6}, {"betweenness": 0.05, "from": "review", "label": 6, "to": "hia_location", "value": 6, "weight": 6}, {"betweenness": 0.05, "from": "review", "label": 5, "to": "portugal", "value": 5, "weight": 5}, {"betweenness": 0.025854700854700853, "from": "review", "label": 5, "to": "hia_info", "value": 5, "weight": 5}, {"betweenness": 0.05, "from": "review", "label": 5, "to": "2016", "value": 5, "weight": 5}, {"betweenness": 0.03333333333333333, "from": "review", "label": 5, "to": "china", "value": 5, "weight": 5}, {"betweenness": 0.004950142450142449, "from": "content_analysis", "label": 24, "to": "review_rating", "value": 24, "weight": 24}, {"betweenness": 0.005527065527065526, "from": "content_analysis", "label": 24, "to": "attraction", "value": 24, "weight": 24}, {"betweenness": 0.012505087505087506, "from": "content_analysis", "label": 24, "to": "hotel", "value": 24, "weight": 24}, {"betweenness": 0.0063502701002701, "from": "content_analysis", "label": 20, "to": "2019", "value": 20, "weight": 20}, {"betweenness": 0.0061365948865948865, "from": "content_analysis", "label": 16, "to": "2021", "value": 16, "weight": 16}, {"betweenness": 0.0062393162393162395, "from": "content_analysis", "label": 14, "to": "2022", "value": 14, "weight": 14}, {"betweenness": 0.005163817663817663, "from": "content_analysis", "label": 12, "to": "usa", "value": 12, "weight": 12}, {"betweenness": 0.007749287749287751, "from": "content_analysis", "label": 11, "to": "things_to_do", "value": 11, "weight": 11}, {"betweenness": 0.006730769230769233, "from": "content_analysis", "label": 9, "to": "2018", "value": 9, "weight": 9}, {"betweenness": 0.008753561253561254, "from": "content_analysis", "label": 8, "to": "uk", "value": 8, "weight": 8}, {"betweenness": 0.010134310134310136, "from": "content_analysis", "label": 8, "to": "restaurant", "value": 8, "weight": 8}, {"betweenness": 0.005576923076923077, "from": "content_analysis", "label": 7, "to": "inferential_statistics", "value": 7, "weight": 7}, {"betweenness": 0.00784188034188034, "from": "content_analysis", "label": 7, "to": "destination", "value": 7, "weight": 7}, {"betweenness": 0.007533577533577535, "from": "content_analysis", "label": 7, "to": "2020", "value": 7, "weight": 7}, {"betweenness": 0.009829059829059829, "from": "content_analysis", "label": 6, "to": "user_location", "value": 6, "weight": 6}, {"betweenness": 0.016025641025641024, "from": "content_analysis", "label": 6, "to": "user_info", "value": 6, "weight": 6}, {"betweenness": 0.010256410256410255, "from": "content_analysis", "label": 6, "to": "response", "value": 6, "weight": 6}, {"betweenness": 0.005726495726495726, "from": "content_analysis", "label": 6, "to": "sentiment_analysis", "value": 6, "weight": 6}, {"betweenness": 0.006538461538461539, "from": "content_analysis", "label": 5, "to": "italy", "value": 5, "weight": 5}, {"betweenness": 0.011486568986568987, "from": "review_rating", "label": 39, "to": "hotel", "value": 39, "weight": 39}, {"betweenness": 0.00514957264957265, "from": "review_rating", "label": 22, "to": "inferential_statistics", "value": 22, "weight": 22}, {"betweenness": 0.0056308968808968796, "from": "review_rating", "label": 17, "to": "2019", "value": 17, "weight": 17}, {"betweenness": 0.005887307137307137, "from": "review_rating", "label": 15, "to": "2021", "value": 15, "weight": 15}, {"betweenness": 0.005982905982905983, "from": "review_rating", "label": 14, "to": "sentiment_analysis", "value": 14, "weight": 14}, {"betweenness": 0.005918803418803419, "from": "review_rating", "label": 12, "to": "attraction", "value": 12, "weight": 12}, {"betweenness": 0.006346153846153846, "from": "review_rating", "label": 12, "to": "2022", "value": 12, "weight": 12}, {"betweenness": 0.011367521367521371, "from": "review_rating", "label": 10, "to": "review_number", "value": 10, "weight": 10}, {"betweenness": 0.00544871794871795, "from": "review_rating", "label": 10, "to": "usa", "value": 10, "weight": 10}, {"betweenness": 0.00714896214896215, "from": "review_rating", "label": 9, "to": "2020", "value": 9, "weight": 9}, {"betweenness": 0.011416361416361417, "from": "review_rating", "label": 8, "to": "restaurant", "value": 8, "weight": 8}, {"betweenness": 0.006873219373219375, "from": "review_rating", "label": 8, "to": "classification", "value": 8, "weight": 8}, {"betweenness": 0.010256410256410256, "from": "review_rating", "label": 7, "to": "2017", "value": 7, "weight": 7}, {"betweenness": 0.006645299145299146, "from": "review_rating", "label": 6, "to": "italy", "value": 6, "weight": 6}, {"betweenness": 0.007264957264957268, "from": "review_rating", "label": 6, "to": "2018", "value": 6, "weight": 6}, {"betweenness": 0.008162393162393162, "from": "review_rating", "label": 6, "to": "destination", "value": 6, "weight": 6}, {"betweenness": 0.010256410256410255, "from": "review_rating", "label": 6, "to": "spain", "value": 6, "weight": 6}, {"betweenness": 0.016666666666666666, "from": "review_rating", "label": 5, "to": "china", "value": 5, "weight": 5}, {"betweenness": 0.007927350427350429, "from": "review_rating", "label": 5, "to": "things_to_do", "value": 5, "weight": 5}, {"betweenness": 0.009188034188034188, "from": "hotel", "label": 22, "to": "usa", "value": 22, "weight": 22}, {"betweenness": 0.008589743589743591, "from": "hotel", "label": 21, "to": "inferential_statistics", "value": 21, "weight": 21}, {"betweenness": 0.00809731934731935, "from": "hotel", "label": 21, "to": "2019", "value": 21, "weight": 21}, {"betweenness": 0.008952991452991454, "from": "hotel", "label": 16, "to": "2020", "value": 16, "weight": 16}, {"betweenness": 0.01495726495726496, "from": "hotel", "label": 13, "to": "response", "value": 13, "weight": 13}, {"betweenness": 0.010511849261849261, "from": "hotel", "label": 13, "to": "2021", "value": 13, "weight": 13}, {"betweenness": 0.015106837606837611, "from": "hotel", "label": 12, "to": "review_number", "value": 12, "weight": 12}, {"betweenness": 0.01324786324786325, "from": "hotel", "label": 12, "to": "hia_info", "value": 12, "weight": 12}, {"betweenness": 0.014743589743589743, "from": "hotel", "label": 11, "to": "2017", "value": 11, "weight": 11}, {"betweenness": 0.01416259666259666, "from": "hotel", "label": 10, "to": "classification", "value": 10, "weight": 10}, {"betweenness": 0.01243589743589744, "from": "hotel", "label": 9, "to": "2022", "value": 9, "weight": 9}, {"betweenness": 0.012991452991452991, "from": "hotel", "label": 9, "to": "2018", "value": 9, "weight": 9}, {"betweenness": 0.041636141636141634, "from": "hotel", "label": 8, "to": "as_a_whole", "value": 8, "weight": 8}, {"betweenness": 0.010427350427350426, "from": "hotel", "label": 7, "to": "sentiment_analysis", "value": 7, "weight": 7}, {"betweenness": 0.014743589743589747, "from": "hotel", "label": 7, "to": "spain", "value": 7, "weight": 7}, {"betweenness": 0.011849816849816848, "from": "hotel", "label": 5, "to": "italy", "value": 5, "weight": 5}, {"betweenness": 0.017735042735042734, "from": "hotel", "label": 5, "to": "linguistics_approach", "value": 5, "weight": 5}, {"betweenness": 0.05, "from": "hotel", "label": 5, "to": "turkey", "value": 5, "weight": 5}, {"betweenness": 0.05, "from": "hotel", "label": 5, "to": "hong_kong", "value": 5, "weight": 5}, {"betweenness": 0.0155982905982906, "from": "hotel", "label": 5, "to": "user_location", "value": 5, "weight": 5}, {"betweenness": 0.004849456099456099, "from": "attraction", "label": 10, "to": "2019", "value": 10, "weight": 10}, {"betweenness": 0.004358003108003107, "from": "attraction", "label": 9, "to": "2021", "value": 9, "weight": 9}, {"betweenness": 0.002927350427350427, "from": "attraction", "label": 7, "to": "uk", "value": 7, "weight": 7}, {"betweenness": 0.0035398860398860397, "from": "attraction", "label": 7, "to": "classification", "value": 7, "weight": 7}, {"betweenness": 0.0036965811965811958, "from": "attraction", "label": 6, "to": "2018", "value": 6, "weight": 6}, {"betweenness": 0.004252136752136751, "from": "attraction", "label": 6, "to": "2020", "value": 6, "weight": 6}, {"betweenness": 0.0036538461538461534, "from": "attraction", "label": 6, "to": "sentiment_analysis", "value": 6, "weight": 6}, {"betweenness": 0.002777777777777777, "from": "attraction", "label": 5, "to": "usa", "value": 5, "weight": 5}, {"betweenness": 0.0039413364413364415, "from": "2019", "label": 8, "to": "inferential_statistics", "value": 8, "weight": 8}, {"betweenness": 0.005860343360343361, "from": "2019", "label": 7, "to": "classification", "value": 7, "weight": 7}, {"betweenness": 0.006249028749028747, "from": "2019", "label": 6, "to": "destination", "value": 6, "weight": 6}, {"betweenness": 0.0073708236208236185, "from": "2019", "label": 6, "to": "review_number", "value": 6, "weight": 6}, {"betweenness": 0.0033964646464646467, "from": "2019", "label": 6, "to": "usa", "value": 6, "weight": 6}, {"betweenness": 0.0056532356532356534, "from": "2019", "label": 5, "to": "italy", "value": 5, "weight": 5}, {"betweenness": 0.020972777222777225, "from": "2019", "label": 5, "to": "as_a_whole", "value": 5, "weight": 5}, {"betweenness": 0.00641025641025641, "from": "2019", "label": 5, "to": "hia_info", "value": 5, "weight": 5}, {"betweenness": 0.004893162393162393, "from": "2019", "label": 5, "to": "sentiment_analysis", "value": 5, "weight": 5}, {"betweenness": 0.004385984385984386, "from": "2021", "label": 8, "to": "classification", "value": 8, "weight": 8}, {"betweenness": 0.0037276612276612277, "from": "2021", "label": 7, "to": "inferential_statistics", "value": 7, "weight": 7}, {"betweenness": 0.007179487179487179, "from": "2021", "label": 7, "to": "uk", "value": 7, "weight": 7}, {"betweenness": 0.0033537296037296034, "from": "2021", "label": 7, "to": "usa", "value": 7, "weight": 7}, {"betweenness": 0.006752136752136752, "from": "2021", "label": 7, "to": "things_to_do", "value": 7, "weight": 7}, {"betweenness": 0.005714840714840714, "from": "2021", "label": 6, "to": "destination", "value": 6, "weight": 6}, {"betweenness": 0.022071678321678324, "from": "2021", "label": 5, "to": "as_a_whole", "value": 5, "weight": 5}, {"betweenness": 0.007798174048174044, "from": "2021", "label": 5, "to": "review_number", "value": 5, "weight": 5}, {"betweenness": 0.003034188034188035, "from": "usa", "label": 9, "to": "inferential_statistics", "value": 9, "weight": 9}, {"betweenness": 0.0036752136752136754, "from": "usa", "label": 6, "to": "2020", "value": 6, "weight": 6}, {"betweenness": 0.004487179487179487, "from": "usa", "label": 5, "to": "hia_info", "value": 5, "weight": 5}, {"betweenness": 0.0038034188034188035, "from": "usa", "label": 5, "to": "uk", "value": 5, "weight": 5}, {"betweenness": 0.003112535612535612, "from": "usa", "label": 5, "to": "classification", "value": 5, "weight": 5}, {"betweenness": 0.004180911680911681, "from": "classification", "label": 5, "to": "things_to_do", "value": 5, "weight": 5}, {"betweenness": 0.0036253561253561254, "from": "classification", "label": 5, "to": "uk", "value": 5, "weight": 5}, {"betweenness": 0.009304029304029304, "from": "classification", "label": 5, "to": "helpful", "value": 5, "weight": 5}, {"betweenness": 0.004401709401709403, "from": "inferential_statistics", "label": 11, "to": "review_number", "value": 11, "weight": 11}, {"betweenness": 0.0028632478632478627, "from": "inferential_statistics", "label": 5, "to": "2022", "value": 5, "weight": 5}, {"betweenness": 0.003034188034188034, "from": "2022", "label": 6, "to": "things_to_do", "value": 6, "weight": 6}, {"betweenness": 0.00235042735042735, "from": "2022", "label": 5, "to": "sentiment_analysis", "value": 5, "weight": 5}, {"betweenness": 0.013629426129426128, "from": "2020", "label": 6, "to": "as_a_whole", "value": 6, "weight": 6}, {"betweenness": 0.005256410256410257, "from": "2020", "label": 5, "to": "review_number", "value": 5, "weight": 5}, {"betweenness": 0.002930402930402931, "from": "restaurant", "label": 6, "to": "italy", "value": 6, "weight": 6}, {"betweenness": 0.0017094017094017094, "from": "response", "label": 6, "to": "linguistics_approach", "value": 6, "weight": 6}, {"betweenness": 0.05, "from": "as_a_whole", "label": 5, "to": "2015", "value": 5, "weight": 5}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+        // if this network requires displaying the configure window,
+        // put it in its div
+        options.configure["container"] = document.getElementById("config");
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
