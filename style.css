@@ -3,6 +3,19 @@
  */
 
 /* html is set to 62.5% so that all the REM measurements are based on 10px sizing. So basically 1.5rem = 15px */
+
+
+
+body{
+    height: 100%;
+    margin: 0;
+	display: table-cell;
+	vertical-align: middle;
+}
+html {
+    display: table;
+    margin: auto;
+}
 html {
   font-size: 62.5%;
 }
@@ -56,7 +69,7 @@ h6 { font-size: 1.4rem; line-height: 1.6;  letter-spacing: 0; }
  * Paragraphs
  */
 p {
-  margin: 0 auto 1.5em auto; /* bottom margin for paragraphs */
+  margin: 0 auto 1 em auto; /* bottom margin for paragraphs */
 }
 p + p {
 
@@ -96,10 +109,7 @@ html {
   background:url(background.jpg) center center no-repeat fixed;
   background-size:cover;
 }
-body {
-  max-width:800px;
-  margin:25px auto;
-}
+
 header, #content, footer { 
   background: rgba(0,0,0,.8); 
   padding:25px;

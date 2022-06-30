@@ -3,7 +3,7 @@
   <head>
     <!-- Page setup -->
     <meta charset="utf-8">
-    <title>Your here</title>
+    <title>Yanggan Share</title>
     <meta name="description" content="A brief description of your site for search engines">
     <meta name="author" content="Information about the author here">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
@@ -28,14 +28,15 @@
   <body>
 
     <header id="header">
-      <img src="logo.png">
-      <h1>Simple Website</h1>
+      <img src="logo.png",width="55" height="44">
+      <h1>Yanggan Share</h1>
       
       <!-- Menu link fragment #id should match a div id. Example: <a href="#home"> links to <div id="home"></div>  -->
       <ul class="main-menu">
-        <li><a href="#home">home</a></li>
-        <li><a href="#about">about</a></li>
-        <li><a href="#contact">contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#aboutp1">P1</a></li>
+        <li><a href="#aboutp2">P2</a></li>
+		
       </ul>                 
     </header>
    
@@ -44,26 +45,60 @@
         <div id="content"> 
           
           <div id="home" class="content-region hide">
-            <h2>Home</h2>
-        
-            <p align="center">
-              <iframe src="keytopic_month_multi.html" alt="you can get the html in the data file" width="859" height="524"></iframe>
-            </p>
-        
+            <!-- <h2>Home</h2> -->
+            <p>
+               Oppia ikä kaikki!
+			</p>
+			<p>
+			   Tyvestä puuhun noustaan.
+			</p>  
           </div>
           
-          <div id="about" class="content-region hide">
-            <h2>About</h2>
+          <div id="aboutp1" class="content-region hide">
+            <h2>About P1</h2>
+			
+			
+			<p>
+			   <center>Country Heatmap Over Time <a href="p1plotly/country_heatmap_date.html" target="_blank">(full screen)</a>
+			   </center>
+			</p>
             <p>
-              Sed tempus urna et pharetra pharetra massa massa ultricies. Porttitor rhoncus dolor purus non enim praesent. Id aliquet risus feugiat in ante metus dictum. 
+              <iframe width="787" height="443" src="p1plotly/country_heatmap_date.html" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </p>
+			<p>
+			   <center> Author Network <a href="p1plotly/author.html" target="_blank">(full screen)</a>
+			   </center>
+			</p>
+			<p>
+			  <iframe width="787" height="443" src="p1plotly/author.html" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</p>
+			<div >
+				<p>
+				  <center>Destination Heatmap <a href="p1plotly/destination_heatmap.html" target="_blank">(full screen)</a>
+				  </center>
+				</p>
+				<p>
+				  <iframe width="787" height="443" src="p1plotly/destination_heatmap.html" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</p>
+			</div>
           </div>
           
-          <div id="contact" class="content-region hide">
-            <h2>Contact</h2>
-            <p>
-              Pellentesque nec nam aliquam sem et tortor consequat. Quisque sagittis purus sit amet volutpat consequat. Magna eget est lorem ipsum dolor. 
-            </p>
+          <div id="aboutp2" class="content-region hide">
+		    <div>
+				<h2>About P2</h2>
+				<p>
+				<a href="#visual-content"><li> 4. Visual Content Analysis</li></a>
+				
+				</p>
+			</div>
+			<div id ="visual-content"><h3 align="left";>2. Hashtag Mining</h3>
+			   <p>
+                   
+				<iframe  width="787" height="443" src="p2plotly/keytopic_month_en.html" frameborder="20
+				" allow="accelerometer; picture-in-picture"; allowfullscreen ></iframe>
+              </p>
+
+			</div>
           </div>
           
         </div>
@@ -71,7 +106,7 @@
     </div>
 
     <footer>  
-      Footer region
+     Study Share by Yanggan 
     </footer>
     
     <!-- Load additional JS scripts here -->
