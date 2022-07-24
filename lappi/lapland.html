@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+   
+  <head>
+    <meta charset="utf-8">
+    <title>Research Proposal by Peng</title>
+	<style>
+		div.highlight {
+		  background-color: #F5F3F2;
+		  overflow: auto;
+		  white-space: nowrap;
+		}
+
+		div.highlight pre {
+		  display: inline-block;
+		  color: black;
+		  text-align: left;
+		  padding: .1px ;
+		  text-decoration: none;
+		}
+
+		div.highlight pre:hover {
+		  background-color: black;
+		}
+	</style>
+	<style>
+		body { width: 974px; margin: 0 auto; }
+    </style>
+	<style>
+		ul.ul-audio { color: silver; }
+    </style>
+	<style>
+		p {font-size: 18px;} 
+	</style>
+	<style>
+		ul.images {
+		  margin: 2;
+		  padding: 0;
+		  white-space: nowrap;
+		  width: 970px;
+		  overflow-x: auto;
+		}
+         ul.images li {
+		  display: inline-block;
+		  
+		 }
+		ul.images li:hover {
+		  background-color: blue;
+		}
+	
+	</style>
+  </head>
+  <body>
+    <h1 align="center" >Pilot Study 2: Instagram #LaplandSafari</h1>
+	<p style="text-align:center";margin-bottom: 10px;> Peng Yang </p>
+	
+    <ul class="images">
+	  <!-- Inline styles added for demonstration purposes only. -->
+	  <li><img src="https://pic2.zhimg.com/80/v2-2b2c9c532f31b575613efa70c2f99203_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/russianlapland.png';" width="425" height="204" /></li>
+	  <li><img src="https://pic4.zhimg.com/80/v2-c3cdeb15b84bebb7c660631668681966_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/norwaegianlapland.png';" width="458" height="170" /></li>
+	  <li><img src="https://pic2.zhimg.com/80/v2-677843ee0bab63f4b0ec85b8d65f669c_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/finnishlapland.png';" width="396" height="166" /></li>
+	  <li><img src="https://pic1.zhimg.com/80/v2-373637ea0d54c44ae7650fc8e2ff78dd_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/swedishlapland.png';" width="412" height="169" /></li>
+	  <li><img src="https://pic3.zhimg.com/80/v2-57042adb99b4adaf1d7f1d797629e5b3_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/lappi.png';" width="329" height="174" /></li>
+	  <li><img src="https://pic4.zhimg.com/80/v2-8f02a67f1248b012e42da8c80b891fa8_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/visitlapland.png';" width="368" height="173" /></li>
+	  <li><img src="https://pic4.zhimg.com/80/v2-08b29137780a6225d1ac4b9f7aaf618f_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/laplandfinland.png';" width="402" height="167" /></li>
+	</ul>
+	<p margin-bottom: 10px> &nbsp;</p>
+	<p>In tourism branding,'Lapland' is mostly used by Swedish Lapland and Finnish Lapland but rarely used by Norweigan Lapland (Finnmark) or Russian Lapland(Murmansk Oblast).To a larger extent, that is part of arctic tourism discussed in <a href="https://www.researchgate.net/publication/275945514_Arctic_Tourism_Realities_and_Possibilities" target="_blank">Arctic Tourism: Realities and Possibilities(Maher et al. 2014)</a>. This study aims to shed a light to answer the research questions in future,I collected a smaller data by scraping hashtag <b>#laplandsafaris</b> on the Instagram with public posts(5537 posts) on 22.10.2020. This study has done text mining of instagram caption
+       especially on hashtages&emojis,a deep learning technique called <a href="https://arxiv.org/pdf/2004.10934.pdf" target="_blank">YOLOv4</a> has been used to train and classify the images into five classes:<b>husky,aurora,reindeer,snowmobile and Santa</b> that are the most famous tours in
+      Lapland.</p>
+	<ul>1. Pre-Analysis </ul>
+    <a href="#text-mining"><ul>2. Hashtag Mining </ul></a>
+	<a href="#post-mapping"><ul>3. Post Mapping </ul></a>
+    <a href="#visual-content"><ul> 4. Visual Content Analysis</ul></a>
+	<a href="#northern-light"><ul> 5. Northern Light Forecasting</ul></a>
+	<a href="#lap-chatbot"><ul> 6. Lapland Travel Chatbot</ul></a>
+	<ul class = ul-audio> 7. Audio Machine Learning(doable if needed)</ul>
+    <p align="center"><img src="https://pic1.zhimg.com/80/v2-13e7d88710eba58c8ac2e1a249b58e89_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/laplandsafari_hash.png';" width="555" height="722" /></p>
+	
+	<!-- pre-analysis -->
+	<h2 align="center">1.Pre-Analysis</h2>
+	<p margin-bottom: 10px> &nbsp;</p>
+	<p>All data including text,audio and visual content(images static and moving ones) should and could be encoded for machine learning. The encoding samples are shown as follows,the more will be discussed in the next part(what I have studies for now - a research prototype).</p>
+	<p>This is a sample video from Instagram that is composed of text(subtitle),audio and moving pictures.</p>
+	<p align="center">
+	<!-- merry video add ?rel=0 in youtube embed to show first frame back after video ends <iframe src="https://drive.google.com/file/d/1THJmFqPH2u3-ydLuEv5qUMyPb27vkEor/preview" width="640" height="480" allowfullscreen></iframe> -->
+    <iframe width="787" height="443" src="https://www.youtube.com/embed/6n8Yedy1TzI?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </p>
+	<p > First,we need to cut out the images(OpenCV),scan the subtitle(easyOCR) and split the audio out from the viedo(moviepy). </p>
+    <div class ="highlight">
+		<pre>
+		<code class = "language-text">
+		import numpy as np
+		from google.colab.patches import cv2_imshow
+		import cv2
+		frames=[]
+		cap = cv2.VideoCapture(file_in) 
+
+		vid_wd = cap.get(cv.CAP_PROP_FRAME_WIDTH)
+		vid_ht = cap.get(cv.CAP_PROP_FRAME_HEIGHT)
+		fps = cap.get(cv2.CAP_PROP_FPS)
+		frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+		duration = frame_count/fps
+		sec = 0
+		frameRate = 2 #it will capture image in each 2 second
+		while True:
+			sec = round(sec, 2)
+			sec = sec + frameRate
+			cap.set(cv2.CAP_PROP_POS_MSEC,sec*1000)
+			hasFrames,image = cap.read()
+			if hasFrames:      
+				frames.append(image)
+			else:
+				break
+			cv2_imshow(image)
+		cap.release() 
+		cv2.destroyAllWindows()
+
+		vid_pro = {'width':vid_wd,'height':vid_ht,'fps':fps,'duration':duration }
+		print(vid_pro)
+		print(frames[-4])
+		</code>
+		</pre>	
+    </div>
+	<p>The result prints out video property{'width': 960.0, 'height': 542.0, 'fps': 30.0, 'duration': 60.0}. Lets take the last fourth image as example to get the encodings in the form of numpy array.</p>
+	<div class ="highlight">
+		<pre>
+			<code class = "language-text">
+			array([[[ 0,  0,  9],
+				[ 0,  0,  9],
+				[ 0,  0,  9],
+				...,
+				[ 6, 23, 39],
+				[ 6, 23, 39],
+				[ 8, 25, 41]],
+			   ...,
+
+			   [[22, 61, 94],
+				[22, 61, 94],
+				[22, 61, 94],
+				...,
+				[27, 36, 42],
+				[27, 36, 42],
+				[27, 36, 42]]], dtype=uint8
+			</code>
+		</pre>	
+    </div>
+    <p> Lets display the last-fourth image(frames[-4]).</p>	
+	<p align="center"><img src="https://pic4.zhimg.com/80/v2-3d4a9aaa59f25dee772f43f4c67a0fe3_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/everthing_is_ready.png';" width="580" height="326" /></p>
+	<p> As we can see there is subtitle shown in image. We can apply OCR(Optical character recognition) technique to extract the machine-encoded text. It seems silly to write codes to get the one line text as we can easily just manually write down. 
+		But how about thousands or millions images' caption,we as human hardly can finish the huge amount of task but machine learning can help.</p>	
+	<p> After getting the caption 'Everthing is ready for Christmas',we try to use sklearn OneHotEncoder to encode the text to numbers. OneHot encoding is quite simple,in real machine learning there will have different encoding methods such as Google's Tensorflow uses word embeddings. </p>
+	
+    <div class ="highlight">
+		<pre>
+			<code class = "language-text">
+			['Everything' 'is' 'ready' 'for' 'Christmas']
+			[[0. 1. 0. 0. 0.] # 'Everything'
+			 [0. 0. 0. 1. 0.] # 'is'
+			 [0. 0. 0. 0. 1.] # 'ready'
+			 [0. 0. 1. 0. 0.] # 'for'
+			 [1. 0. 0. 0. 0.]] # 'Christmas'
+			</code>
+		</pre>	
+    </div>
+	
+	<p> When comes to audio, first we convert the video to audio by using moviepy(python library). Then we can use torchaudio(python library) to get the audio property.</p>
+	<div class ="highlight">
+		<pre>
+			<code class = "language-text">
+			(tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+			[0., 0., 0.,  ..., 0., 0., 0.]]), 44100)
+			</code>
+		</pre>	
+    </div>
+	<p>Now we have encoded the audio into numbers in the form of tensor, there are two lists represent audio's two channels and the sample rate is 44100 Hz.</p>
+	<p>In order to have a more concrete image of the audio, we can also plot the waveform. It seems the audio is too loud,a thumb of rule amplitude is better between +/-0.6. </p>
+	<p align="center"><img src="https://pic4.zhimg.com/80/v2-827a449618d39688e386cc5c71983faa_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/sound_wave.png';"  width="580" height="326" /></p>
+	
+	<!-- text minging -->
+	<div id ="text-mining"><h2 align="center";>2. Hashtag Mining</h2>
+	    <p margin-bottom: 10px> &nbsp;</p>
+		<p>For now, I will only analyze the hashtag as text, which is  quite import like keywords on Instagram. </p>
+		<div class ="highlight">
+			<pre>
+			<code class = "language-text">
+			#plot word freq
+			from wordcloud import WordCloud, ImageColorGenerator
+			from os import path
+			from imageio import imread 
+			import matplotlib.pyplot as plt 
+			#font_path = "C:\Videos\Personal_life\R_Python\jiebaDict\SourceHanSerifTC_EL-M\SourceHanSerifTC-Regular.otf" 
+			#mask = imread('C:\Videos\Personal_life\R_Python\jiebaDict\lapmap.png') 
+			font_path = '/mydrive/Instagram/SourceHanSerifTC-Regular.otf'
+			mask =imread('/mydrive/Instagram/lapmap3.png')
+			wc = WordCloud(font_path=font_path, background_color="white",collocations=False,mask=mask, random_state=3,normalize_plurals = False, width=800, height=1000, )
+			# wordcloud drop plural 's' in order to keep it set normalize_plurals = False
+			wc.generate(hash_join)
+			#create coloring from image
+			image_colors = ImageColorGenerator(mask)
+			plt.figure(figsize=(8,10))
+			#recolor wordcloud and show
+			plt.imshow(wc.recolor(color_func=image_colors), interpolation="bilinear") 
+			plt.axis("off") 
+			plt.savefig('/mydrive/Instagram/lap_wordcloud_with_s.png',dpi=300)
+			plt.show()
+			</code>
+			</pre>	
+		</div>
+		<p> The wordcloud of hashtag is printed out as follows.</p>
+		<p align="center"><img src="https://pic2.zhimg.com/80/v2-1639b93a0f837d4226571f24f99eb3e0_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/wordcloud_hashtag.png';" width="447" height="558" /></p>
+		<p>Except for #laplandsafaris, the most frequent hashtags are #lapland(3212),#finland(2295),#snow(1140) and #visitlapland(1090).</p>
+		<p>Along with hashtag,nowadays tourist use more and more emojis to express what they have seen and how they feel in the activities. Here I take the emoji as text content which can be converted each other.</p>
+		<p align="center"><img src="https://pic4.zhimg.com/80/v2-e8b3d04fbf8294e27f4d8643c5f1213e_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/emoji.png';" width="443" height="187" /></p>
+		<p>From the above figure we can easily find out the most used emojis are snowflake,smiling_face_with_heart-eyes,red_heart,dog(mostly husky) and so on</p>
+		</div>
+		
+
+	<!-- post mapping -->
+	<div id ="post-mapping"><h2 align="center">3. Post Mapping</h2>
+		<p margin-bottom: 10px> &nbsp;</p>
+		<p> Based on the data of post location,most of users posted Instagram in Finnish Lapland followed by Swedish lapland,where Rovaniemi and Kiruna are the Instagram-capitals respectively based on the post numbers. </p>
+		<p> The 'city' in real life is a little bit different from location system of Instagram,I have rearranged them such as put 'Sinettä'/'Ivalo' into the category of 'Rovaniemi'/'Inari' separately.</p>
+		<p align="center"><iframe src="lapmap.html" alt="you can get the html in the data file" width="859" height="524"></iframe></p>
+	</div>
+	 
+	
+	<!-- visual content analysis -->
+	<div id ="visual-content"><h2 align="center">4. Visual Content Analysis</h2>
+		<p margin-bottom: 10px> &nbsp;</p>
+	    <p>In this part I will analyze visual content from 4 perspectives:image detection,video-deepsort,pixel analysis and gender-age-emotion. </p>
+	    <h3 align="center">4.1 Image Detection (YOLOv4)</h3>
+			<p>Before starting the visual content analysis,we need to train the data in order to let machine understand what object we want to detect. Here five classes of images are selected that is "husky,aurora,reindeer,Santa and snowmobile". We can find more details about the training results such as accuracy in the following figure.</p>
+			<p align="center"><img src="https://pic4.zhimg.com/80/v2-0b781e4a4b71a966a7dfed5c4ceac2f3_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/yolov4_mAP.png';" width="839" height="690" /></p>
+			<p>Lets take a image to test the how well the model would predict. </p>
+			<p align="center"><img src="https://pic1.zhimg.com/80/v2-79448669bd164b1bda18e7a42fc7db7e_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/husky_test.png';" width="756" height="756" /></p>
+			<p>Through human eyes, we can guess there are 5-6 huskies,the machine has detected 3 of them. Based on a relative small data set,The result is actually quite good,as we can see there are 2-3 huskies are blocked by others. </p>
+			<p>After detecting all images(videos will be discussed later), the machine find out there are 764 huskies,182 aurora,526 reindeers,674 snowmobile and 154 Santas in the posts. Husky seems the most popular one and the Santa is the least posted that is quite different from what I expected. The reason might people would like more to share animal than personal images on the public posts. </p>
+			
+		
+		<h3 align="center">4.2 Video Deepsort</h3>
+			<p>When comes to video(moving pictures),we need to track the image so that we can know how many exactly objects are detected. For example above-mentioned video has duration 60 seconds with fps30 that is 1800 images in total. There are lots same objects are displayed in consecutive images of certain time, it will be unreasonable to count object in every image.Instead we need to trace the moving images,Deepsort technique is used here.
+			we will have a more clear image through the following video about Deepsort tracking technique. </p>
+			<p align="center">
+			<iframe width="787" height="443" src="https://www.youtube.com/embed/DswoCh4auu0?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</p>
+			<!-- detected video <iframe src="https://drive.google.com/file/d/1-1oZn442-l45NxL4KA2vsxAOH8mMN11a/preview" width="640" height="480"></iframe> -->
+			<p>As at the moment,YOLOv4 could read the video at around 15 fps, there are some class label jumping,but for application that does not affect the result much. The following table shows machine found 1 snowmobile,1 reindeer,5 huskies ,2 auroras and 1 Santa. </p>
+	    <table style="border-collapse: collapse; width: 528,02pt;" border="1" width="704" cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr style="height: 15,00pt;">
+					<td class="et2" style="height: 15,00pt; width: 48,00pt;" width="64" height="20">id</td>
+					<td class="et3" style="width: 48,00pt;" align="right" width="64">1</td>
+					<td class="et3" style="width: 48,00pt;" align="right" width="64">3</td>
+					<td class="et3" style="width: 48,00pt;" align="right" width="64">4</td>
+					<td class="et3" style="width: 48,00pt;" align="right" width="64">13</td>
+					<td class="et3" style="width: 48,00pt;" align="right" width="64">14</td>
+					<td class="et3" style="width: 48,00pt;" align="right" width="64">18</td>
+					<td class="et3" style="width: 48,00pt;" align="right" width="64">24</td>
+					<td class="et3" style="width: 48,00pt;" align="right" width="64">26</td>
+					<td class="et3" style="width: 48,00pt;" align="right" width="64">28</td>
+					<td class="et3" style="width: 48,00pt;" align="right" width="64">29</td>
+				</tr>
+					<tr style="height: 15,00pt;">
+					<td class="et2" style="height: 15,00pt;" height="20">class</td>
+					<td class="et3">snowmobile</td>
+					<td class="et3">reindeer</td>
+					<td class="et3">husky</td>
+					<td class="et3">husky</td>
+					<td class="et3">husky</td>
+					<td class="et3">husky</td>
+					<td class="et3">husky</td>
+					<td class="et3">aurora</td>
+					<td class="et3">aurora</td>
+					<td class="et3">santa</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<h3 align="center">4.3 Pixel Analysis</h3>
+			<p>In additional to the object detection, it might be also interesting to analyse the primitive features such as pixel(Zabulis 1999). </p>
+			<p> Taking Finnish flag for example,which has 174960 pixels with width of 540 and height of 324 pixels.  </p>
+			<p align="center"><img src="https://pic2.zhimg.com/80/v2-61736827640cdcf87090cf9b3f40d765_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/finnish_flag.png';" width="540" height="324" /></p>
+			<p> It easy to tell the flag is composed of two colors:blue and white. But pixel analysis shows the white and blue do not tell the whole story which takes up 48.6% and 30.3% pixels respectively. There are also a variety of other different colors in between as shown in the following figure. The premitive features of images have a huge potentials to analyze image, I will discuss it more when comes to real research.</p>
+			<p align="center"><img src="https://pic4.zhimg.com/80/v2-b57cd10a2934d1cfe1340efc0f288018_720w.png" alt="Image not found" onerror="this.onerror=null;this.src='data/pixel.png';" width="580" height="366" /></p>
+		
+		<h3 align="center">4.4 Gender-Age-Emotion</h3>
+		<p>  As Jungseock et al.(2018) used machine learning to analyse face in political science,we can also apply it for tourism study. Here dozens lines of code are truncated and only keep the essential one to show how we got the most important features:<b>gender,age and emotion</b>. The three features are very important in tourism study,except text with application of machine learning,the image can also tell the story. </p>
+		<div class ="highlight">
+			<pre>
+			<code class = "language-text">
+			for ( tleft, ttop,tright,tbottom ),age,gender,emotion in zip(boxes,ages,genders,emotions):      
+			left = float(tleft.cpu().numpy()) # change tensor to numpy to float
+			top = float(ttop.cpu().numpy())
+			right = float(tright.cpu().numpy())
+			bottom = float(tbottom.cpu().numpy())
+			#print('face found:'+str(face_num) )
+			draw.rectangle(((left, top), (right, bottom)), outline=(0, 0, 255))
+			name = str(age) +'-' + gender +'-' + emotion
+			# Draw a label with a name below the face
+			text_width, text_height = draw.textsize(name)
+			draw.rectangle(((left, bottom - text_height - 10), (right, bottom)), fill=(0, 0, 255), outline=(0, 0, 255))
+			draw.text((left + 6, bottom - text_height - 5), name, fill=(255, 255, 255, 255))    
+			plt.imshow(pil_image)
+			</code>
+			</pre>	
+		</div>
+	    <p align="center"><img src="https://pic1.zhimg.com/v2-d597f45b00afaa2943f74ee84fd2b944_b.png" alt="Image not found" onerror="this.onerror=null;this.src='data/gender_age_emotion.png';" width="640" height="640" /></p>
+	</div>
+	<p>The image shows there is a happy 20 years old lady.The next part I will introduce another potential of machine learning - <b>prediction</b>,to be specific aurora forecasting in this case.</p>
+	
+	<!-- Northern Light Forecasting -->
+	<div id ="northern-light"><h2 align="center">5.Northern Light Forecasting </h2>
+		<p margin-bottom: 10px> &nbsp;</p>
+		<p> Here I use LSTM for doing the aurora forecasting, which is one of popular RNN to analyse time-series data.I scraped the aurora data(Kp value) from <a href="https://www.spaceweatherlive.com/en/archive/2020/10.html" target="_blank">SpaceWeatherLive</a> which has 8858 days from 01-07-1996 until 31-10-2020.
+		Just out of interest,I would like to share with you how did Kp value look like in the last 365 days until 31.10.2020.
+		</p>
+		<p align="center"><img src="https://pic3.zhimg.com/v2-4ff73aae7a812e9b39d5349cadd0450a_b.png" alt="Image not found" onerror="this.onerror=null;this.src='data/kpvalue_365.png';" width="878" height="333" /></p>
+		<p> As we can see the maximum Kp value is 6 in the recent year,but do you know during the last 14 years we had seen 3 times Aurora with the highest Kp value 9 or G5. That is so rare,one of them even happened on 30th and 31st October that was named<a href="https://www.nasa.gov/topics/solarsystem/features/halloween_storms.html" target="_blank"> Halloween Storms of 2003</a>.
+		But in order to make the prediction model more precise I took out the extreme 3 days Kp value to train the rest data. The following figure shows the training result after 1500 epochs.
+		</p>
+		<p align="center"><img src="https://pic1.zhimg.com/v2-43915b5305a44d4412f4591330344720_b.png" alt="Image not found" onerror="this.onerror=null;this.src='data/Kp_day.png';" width="660" height="276" /></p>
+		<p> Here we use RMSE to evaluate the LSTM model which shows train Score: 1.24 RMSE and test Score: 1.28 RMSE, it sees quite good but there still have a lot to do to improve the machine learning. </p>
+	</div>
+	
+	<!-- Lapland Travel Chatbot -->
+	<div id ="lap-chatbot"><h2 align="center">6.Lapland Travel Chatbot</h2>
+		<p margin-bottom: 10px> &nbsp;</p>
+		<p> Natural language processing is another important part of machine learning. I would like to create a chatbot can answer tourist question about Lapland Travel automatically. At the moment there are very few data collected from the Q&A about Lapland Travel on <a href="https://www.visitrovaniemi.fi/plan/faq-ask-us/" target="_blank">VisitRovaneimi</a> and  <a href="https://www.laplandsafaris.com/en/faq" target="_blank">LaplandSafari</a>,the code was test in google colab and can be directly developed to APP such as on Heroku. The chatbot APP would be quiet useful if we got more data to improve it accuracy. The following is a kind cheaty chat as I put all the question in a very formal way. </p>	
+	    <p align="center"><img src="https://pic3.zhimg.com/v2-2e7a62a7f0c49f84d66c9f82357d6446_b.png" alt="Image not found" onerror="this.onerror=null;this.src='data/lapland_chatbot.png';" width="718" height="955" /></p>
+	    
+	</div>
+		
+	<!-- Audio Machine Learning -->
+	<h2 align="center">7.Audio Machine Learning and More</h2>
+		<p margin-bottom: 10px> &nbsp;</p>
+		<p> So far,I have presented a varity of potentials that machine learning can be used to do research on Lapland tourism. Due to the proposal length , there also have a lot interesting findings not put here, such as do you know which time period users post most on Instagram(shown in the following figure). Along with the visual content analysis,it occurs to me that the audio,especially BGM of Instagram Reels would be also meaningful for content analysis. Which is definitly doable,if needed in the future study.</p>
+		<p align="center"><img src="https://pic3.zhimg.com/v2-ad141a8b986dc8ab59ea67a2b22886ae_b.png" alt="Image not found" onerror="this.onerror=null;this.src='data/post_hour.png';" width="375" height="265" /></p>
+		<p> The figure shows at 19 EET,people posted the most #laplandsafaris images on Instagram. Here I have changed GMT to Helsinki time with also concerning the factor of daylight saving time.</p>
+        <p align="center"> ...</p>
+		<p align="center"> ...</p>
+		<p align="center"> ...</p>
+		
+  </body>
+ 
+</html>
+
