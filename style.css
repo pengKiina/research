@@ -7,15 +7,16 @@
 
 
 body{
-    height: 100%;
+  
     margin: 0;
-	display: table-cell;
-	vertical-align: middle;
-	height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
     width: 100%;
    
 }
 html {
+    max-width: 1280px;
     display: table;
     margin: auto;
 }
